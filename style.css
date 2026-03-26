@@ -1,0 +1,533 @@
+/* =========================================
+   SUPPLYAI - Enterprise AI Design System
+   ========================================= */
+
+/* --- 1. 高级科技感变量 (High-Tech Tokens) --- */
+:root {
+  --bg-deep: #050814;
+  --bg-soft: #0a0f1d;
+  --bg-card: rgba(15, 23, 42, 0.6);
+
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+
+  --text-main: #94a3b8;
+  --text-heading: #ffffff;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glow-cyan: 0 0 30px rgba(0, 242, 254, 0.2);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 2. 基础重置 --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  color: var(--text-main);
+  line-height: 1.7;
+  background-color: var(--bg-deep);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+.container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
+.bg-light { background-color: var(--bg-soft); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+.text-center { text-align: center; }
+
+/* --- 3. 导航栏 --- */
+.main-header {
+  background: rgba(5, 8, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; }
+.logo-img { height: 48px; width: auto; max-width: 220px; object-fit: contain; mix-blend-mode: screen; }
+
+.nav-links { display: flex; align-items: center; list-style: none; gap: 2rem; }
+.nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
+.nav-links a:hover, .nav-links a.active:not(.nav-cta) { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
+.nav-links .nav-cta {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #000 !important;
+  padding: 0.6rem 1.6rem !important;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  border: none;
+}
+.nav-links .nav-cta:hover { box-shadow: 0 0 25px rgba(0, 242, 254, 0.6); transform: translateY(-2px); }
+
+/* --- 4. 通用排版与按钮 --- */
+.section { padding: 100px 0; }
+.section-label {
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  display: inline-block;
+  background: rgba(0, 242, 254, 0.1);
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+.section-title { font-size: 2.75rem; color: var(--text-heading); margin-bottom: 1.5rem; font-weight: 700; line-height: 1.2; }
+.section-header { margin-bottom: 4rem; }
+.vision-text { font-size: 1.25rem; color: #cbd5e1; max-width: 850px; margin: 0 auto; line-height: 1.6; }
+
+.cta-group { display: flex; gap: 1.2rem; margin-bottom: 1rem; }
+.btn {
+  padding: 0.9rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  font-size: 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-primary { background: #ffffff; color: #000; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+.btn-primary:hover { background: #e2e8f0; transform: translateY(-2px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
+.btn-secondary { border-color: var(--glass-border); color: #ffffff; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
+.btn-secondary:hover { border-color: var(--accent-cyan); background: rgba(0, 242, 254, 0.1); }
+
+/* --- 5. 高级毛玻璃卡片 (Global Cards) --- */
+.grid-capabilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.card {
+  padding: 2.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(79, 172, 254, 0.05);
+}
+.card-num {
+  font-size: 3.5rem; font-weight: 900; color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+  position: absolute; top: 1rem; right: 1.5rem; line-height: 1;
+}
+.card h4 { font-size: 1.4rem; color: var(--text-heading); margin-bottom: 1rem; font-weight: 600; }
+.card p { color: var(--text-main); font-size: 0.95rem; }
+
+.featured-card {
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.05));
+  border-color: rgba(0, 242, 254, 0.3);
+}
+
+/* --- 6. 英雄区与双栏布局 (Hero & Split Layouts) --- */
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.hero-image img { width: 150%; border-radius: 20px; box-shadow: var(--glow-cyan); border: 1px solid var(--glass-border); opacity: 0.9; }
+.hero-image2 img { width: 100%; border-radius: 20px; box-shadow: var(--glow-cyan); border: 1px solid var(--glass-border); opacity: 0.9; }
+
+/* --- 7. "How It Works" AI 流程时间轴特效 --- */
+.process-container { position: relative; max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
+/* 中间发光连接线 */
+.process-container::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-cyan), transparent);
+  opacity: 0.3; transform: translateX(-50%);
+}
+.process-step { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6rem; gap: 4rem; position: relative; z-index: 2; }
+.process-step:nth-child(even) { flex-direction: row-reverse; }
+
+.process-content {
+  flex: 1; background: var(--bg-card); padding: 2.5rem; border-radius: 20px;
+  border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: var(--transition);
+}
+.process-content:hover { border-color: var(--accent-cyan); transform: translateY(-5px); box-shadow: var(--glow-cyan); }
+.process-number { font-size: 4rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1px rgba(0, 242, 254, 0.4); margin-bottom: 1rem; line-height: 1; }
+.process-content h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--text-heading); }
+.process-content p { font-size: 1.05rem; color: var(--text-main); }
+
+/* AI 扫描仪视觉框 */
+.process-visual {
+  flex: 1; height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--glass-border); background: rgba(0, 242, 254, 0.02);
+  position: relative; overflow: hidden; box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+}
+.process-visual::after {
+  content: ''; position: absolute; width: 200%; height: 200%;
+  background: conic-gradient(from 0deg, transparent 0 340deg, rgba(0, 242, 254, 0.3) 360deg);
+  animation: radar-spin 4s linear infinite; opacity: 0.5;
+}
+@keyframes radar-spin { 100% { transform: rotate(360deg); } }
+.visual-placeholder { font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; z-index: 1; text-shadow: 0 0 10px rgba(0,242,254,0.5); }
+
+/* --- 8. Contact 全局表单与交互样式 --- */
+input, select, textarea {
+  width: 100%; padding: 1rem; border-radius: 8px; font-family: inherit; font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.03) !important; /* 透明毛玻璃输入框 */
+  color: #fff !important;
+  border: 1px solid var(--glass-border) !important;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  background: rgba(0, 242, 254, 0.05) !important;
+}
+label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
+
+/* --- 9. 页脚 --- */
+.footer { background: #02040a; padding: 5rem 0 3rem; border-top: 1px solid var(--glass-border); }
+.footer-grid { display: flex; justify-content: space-between; align-items: center; }
+.footer-brand p { font-size: 0.9rem; color: #64748b; margin-top: 0.8rem; }
+.footer-copyright { color: #475569; font-size: 0.85rem; }
+
+/* --- 10. 响应式适配 --- */
+@media (max-width: 968px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  .nav-links { display: none; }
+  .process-container::before { left: 20px; }
+  .process-step, .process-step:nth-child(even) { flex-direction: column; text-align: left; gap: 2rem; }
+}
+/* --- Hero 区块布局优化 (解决拥挤问题) --- */
+.hero {
+  padding: 120px 0 80px; /* 调整上下内边距 */
+}
+
+/* 将网格比例从 1:1 改为 1.2:0.8，给文字更多空间 */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 6rem; /* 加大左右间距 */
+  align-items: center;
+  margin-bottom: 4rem; /* 和底部数据条拉开距离 */
+}
+
+.hero-headline {
+  font-size: 4.2rem;
+  line-height: 1.15; /* 增加行高，不再紧凑 */
+  margin-bottom: 2rem;
+}
+
+.hero-subheadline {
+  font-size: 1.25rem;
+  line-height: 1.8; /* 增加段落行高，阅读更舒适 */
+  margin-bottom: 3rem;
+  max-width: 90%;
+}
+
+.hero-support p {
+  margin-top: 3rem; /* 将提示语往下推，留出空白呼吸感 */
+  padding-top: 1.5rem;
+  border-left: none;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* --- 图片全息融合特效 (让你的方图完美融入黑色背景) --- */
+.hologram-effect {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hologram-effect img {
+  width: 120%; /* 稍微放大一点，因为我们要裁掉边缘 */
+  max-width: none;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  /* 核心魔法：径向渐变遮罩，让图片边缘虚化融入背景，就像悬浮的投影 */
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+  animation: float 6s ease-in-out infinite; /* 增加轻微的上下浮动动画 */
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* --- 底部横向数据信任条 (Trust Bar) --- */
+.hero-metrics-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 2.5rem 4rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+.metric-item { text-align: center; }
+.metric-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+.metric-text {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+/* 响应式适配 */
+@media (max-width: 968px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+  .hologram-effect img { width: 100%; -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 85%); }
+  .hero-metrics-bar { flex-direction: column; gap: 2rem; padding: 2rem; }
+  .divider { width: 50px; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent); }
+}
+/* =========================================
+   Leadership 页面专属样式 (高级感定制)
+   ========================================= */
+
+/* 强制 2x2 对称布局，解决孤立卡片问题 */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+}
+
+/* 高管横向宽卡片 */
+.executive-card {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 顶部增加一道极光科技线 */
+.executive-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.executive-card:hover {
+  transform: translateY(-5px);
+  background: rgba(15, 23, 42, 0.7);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(0, 242, 254, 0.2);
+}
+
+.executive-card:hover::before {
+  opacity: 1;
+}
+
+/* 无照片情况下的“全息字母徽标”设计 (极度提升高级感) */
+.exec-avatar {
+  width: 70px;
+  height: 70px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(79, 172, 254, 0.2), rgba(0, 242, 254, 0.05));
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.1), 0 0 15px rgba(0, 242, 254, 0.15);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* 文字排版层级 */
+.exec-info {
+  flex: 1;
+}
+
+.exec-badge {
+  display: inline-block;
+  color: var(--accent-cyan);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  background: rgba(0, 242, 254, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+.exec-name {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.exec-bio {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* 移动端适配：屏幕变小的时候，自动变成上下结构 */
+@media (max-width: 968px) {
+  .leadership-grid {
+    grid-template-columns: 1fr; /* 变成单列 */
+    gap: 2rem;
+  }
+  .executive-card {
+    flex-direction: column; /* 头像在上面，文字在下面 */
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+}
+/* =========================================
+   Model 页面专属：高级 AI 四宫格动效
+   ========================================= */
+
+/* 强制 2x2 完美对称布局 */
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+}
+
+/* 核心方块容器 */
+.model-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.5); /* 极深的蓝黑色底 */
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 3.5rem 2.5rem;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* 默认状态的暗淡辉光 */
+.model-bg-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.2), transparent 60%);
+  z-index: -1;
+  transition: all 0.5s ease;
+  opacity: 0.5;
+}
+
+/* 炫酷的悬浮交互 */
+.model-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 242, 254, 0.05);
+  background: rgba(15, 23, 42, 0.8);
+}
+.model-card:hover .model-bg-glow {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+/* 必杀技：扫光特效 (Light Sweep Effect) */
+.model-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: skewX(-25deg);
+  transition: 0.7s ease-in-out;
+  z-index: 2;
+  pointer-events: none;
+}
+.model-card:hover::after {
+  left: 200%; /* 鼠标放上去时，一道光刷地扫过去 */
+}
+
+/* 巨型数字水印 (增加空间纵深感) */
+.model-watermark {
+  position: absolute;
+  bottom: -10px;
+  right: 10px;
+  font-size: 8rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.03);
+  z-index: -1;
+  line-height: 1;
+  transition: all 0.5s ease;
+}
+.model-card:hover .model-watermark {
+  -webkit-text-stroke: 2px rgba(0, 242, 254, 0.15);
+  transform: translateY(-10px);
+}
+
+/* 霓虹指示灯 (科技感点缀) */
+.neon-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  display: inline-block;
+  margin-right: 12px;
+  margin-bottom: 4px;
+}
+
+.model-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.6rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.model-content p {
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* 响应式：手机端变单列 */
+@media (max-width: 968px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

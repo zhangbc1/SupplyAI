@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | SUPPLYAI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="main-header">
+  <div class="container nav-wrapper">
+    <div class="logo"><img src="icon.png" class="logo-img"></div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="platform.html">Platform</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="model.html">Our Model</a></li>
+        <li><a href="leadership.html">Leadership</a></li>
+        <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container text-center">
+    <h2 class="section-label">Get in Touch</h2>
+    <h1 class="section-title">Build the Future of Distribution</h1>
+    <p class="vision-text">We welcome conversations with operators, distributors, retail partners, and technology collaborators who share our vision.</p>
+  </div>
+</section>
+
+<section class="section bg-light">
+  <div class="container hero-grid" style="align-items: flex-start;">
+
+    <div class="hero-content">
+      <h3 class="section-title" style="font-size: 2rem;">Partner with SUPPLYAI</h3>
+      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #cbd5e1;">Whether you are looking to modernize your distribution workflow, explore retail partnerships, or discuss strategic collaboration, our team is ready to connect.</p>
+
+      <div class="card" style="padding: 2rem; border-color: rgba(0,242,254,0.3);">
+        <p style="margin-bottom: 0.5rem; color: #fff;"><strong>Email:</strong> info@supplyai.com</p>
+        <p style="color: #fff;"><strong>HQ:</strong> North America Hub</p>
+      </div>
+    </div>
+
+    <!-- 全面升级为深色半透明表单卡片 -->
+    <div class="card" style="padding: 3rem;">
+      <!-- 把 action 替换为真正的接收 API -->
+      <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- 换成邮箱收到的真实 Access Key -->
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+
+        <!-- 隐藏选项：防止机器人发送垃圾邮件 (Anti-Spam) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+        <!-- 隐藏选项：设置邮件的主题名称，让你一目了然 -->
+        <input type="hidden" name="subject" value="New Lead from SUPPLYAI Website">
+
+        <div style="margin-bottom: 1.5rem;">
+          <label>Full Name</label>
+          <input type="text" name="Name" placeholder="Enter your name" required>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label>Company</label>
+          <input type="text" name="Company" placeholder="Your company name" required>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <div>
+            <label>Email</label>
+            <input type="email" name="Email" placeholder="work@email.com" required>
+          </div>
+          <div>
+            <label>Phone</label>
+            <input type="tel" name="Phone" placeholder="(888) 888-8888">
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label>Area of Interest</label>
+          <select name="Interest" style="color: #fff; background: #0a0f1d !important;">
+            <option value="Wholesale Distribution">Wholesale Distribution</option>
+            <option value="Retail Operations">Retail Operations</option>
+            <option value="Technology Collaboration">Technology Collaboration</option>
+            <option value="Strategic Stakeholder">Strategic Stakeholder</option>
+          </select>
+        </div>
+
+        <div style="margin-bottom: 2.5rem;">
+          <label>Message</label>
+          <textarea name="Message" rows="4" placeholder="How can we help?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
+          Send Secure Message
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand"><img src="icon.png" class="logo-img" style="height:32px; filter:grayscale(1) opacity(0.7);"><p>Intelligence for the Real Supply Chain</p></div>
+    <div class="footer-copyright"><p>&copy; 2026 SUPPLYAI.</p></div>
+  </div>
+</footer>
+</body>
+</html>
