@@ -44,8 +44,9 @@ body {
   border-bottom: 1px solid var(--glass-border);
 }
 .nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
-.logo { display: flex; align-items: center; }
-.logo-img { height: 48px; width: auto; max-width: 220px; object-fit: contain; mix-blend-mode: screen; }
+.logo {display: flex;align-items: center;height: 80px;   overflow: hidden;}
+
+.logo-img {height: 100%;width: auto;max-width: none;object-fit: contain;display: block;transform: scale(1.12);transform-origin: left center;}
 
 .nav-links { display: flex; align-items: center; list-style: none; gap: 2rem; }
 .nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
