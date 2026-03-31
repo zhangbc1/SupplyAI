@@ -1,8 +1,8 @@
 /* =========================================
-   SUPPLYAI - Enterprise AI Design System
+   SupplyAi - Unified Website Stylesheet
    ========================================= */
 
-/* --- 1. 高级科技感变量 (High-Tech Tokens) --- */
+/* --- 1. Design Tokens --- */
 :root {
   --bg-deep: #050814;
   --bg-soft: #0a0f1d;
@@ -15,72 +15,136 @@
   --text-heading: #ffffff;
   --glass-border: rgba(255, 255, 255, 0.08);
   --glow-cyan: 0 0 30px rgba(0, 242, 254, 0.2);
-  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- 2. 基础重置 --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* --- 2. Reset & Base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: 'Inter', -apple-system, system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   color: var(--text-main);
   line-height: 1.7;
   background-color: var(--bg-deep);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-.container { max-width: 1240px; margin: 0 auto; padding: 0 2rem; }
-.bg-light { background-color: var(--bg-soft); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
-.text-center { text-align: center; }
 
-/* --- 3. 导航栏 --- */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.bg-light {
+  background-color: var(--bg-soft);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* --- 3. Header / Navigation --- */
 .main-header {
-  background: rgba(5, 8, 20, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
+  background: rgba(5, 8, 20, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--glass-border);
 }
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  min-height: 84px;
+  gap: 32px;
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  height: 80px;   /* 按你header实际高度改 */
+  flex-shrink: 0;
+  text-decoration: none;
+  line-height: 0;
   overflow: hidden;
 }
 
 .logo-img {
-  height: 100%;
+  height: 60px;
   width: auto;
   max-width: none;
   object-fit: contain;
   display: block;
-  transform: scale(1.12);
-  transform-origin: left center;
 }
-.nav-links { display: flex; align-items: center; list-style: none; gap: 2rem; }
-.nav-links a { color: #cbd5e1; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: var(--transition); }
-.nav-links a:hover, .nav-links a.active:not(.nav-cta) { color: var(--accent-cyan); text-shadow: 0 0 15px rgba(0, 242, 254, 0.4); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-size: 0.96rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active:not(.nav-cta) {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 15px rgba(0, 242, 254, 0.35);
+}
+
 .nav-links .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 124px;
+  height: 48px;
+  padding: 0 1.6rem;
+  border-radius: 999px;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
   color: #000 !important;
-  padding: 0.6rem 1.6rem !important;
-  border-radius: 50px;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.28);
   border: none;
 }
-.nav-links .nav-cta:hover { box-shadow: 0 0 25px rgba(0, 242, 254, 0.6); transform: translateY(-2px); }
 
-/* --- 4. 通用排版与按钮 --- */
-.section { padding: 100px 0; }
+.nav-links .nav-cta:hover {
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+  transform: translateY(-2px);
+}
+
+/* --- 4. Common Typography / Sections / Buttons --- */
+.section {
+  padding: 100px 0;
+}
+
 .section-label {
   color: var(--accent-cyan);
   text-transform: uppercase;
@@ -94,11 +158,34 @@ body {
   border-radius: 30px;
   border: 1px solid rgba(0, 242, 254, 0.2);
 }
-.section-title { font-size: 2.75rem; color: var(--text-heading); margin-bottom: 1.5rem; font-weight: 700; line-height: 1.2; }
-.section-header { margin-bottom: 4rem; }
-.vision-text { font-size: 1.25rem; color: #cbd5e1; max-width: 850px; margin: 0 auto; line-height: 1.6; }
 
-.cta-group { display: flex; gap: 1.2rem; margin-bottom: 1rem; }
+.section-title {
+  font-size: 2.75rem;
+  color: var(--text-heading);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.vision-text {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  max-width: 850px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cta-group {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
 .btn {
   padding: 0.9rem 2.2rem;
   border-radius: 50px;
@@ -110,13 +197,38 @@ body {
   cursor: pointer;
   border: 1px solid transparent;
 }
-.btn-primary { background: #ffffff; color: #000; box-shadow: 0 0 20px rgba(255,255,255,0.2); }
-.btn-primary:hover { background: #e2e8f0; transform: translateY(-2px); box-shadow: 0 0 30px rgba(255,255,255,0.4); }
-.btn-secondary { border-color: var(--glass-border); color: #ffffff; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); }
-.btn-secondary:hover { border-color: var(--accent-cyan); background: rgba(0, 242, 254, 0.1); }
 
-/* --- 5. 高级毛玻璃卡片 (Global Cards) --- */
-.grid-capabilities { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.btn-primary {
+  background: #ffffff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary:hover {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.35);
+}
+
+.btn-secondary {
+  border-color: var(--glass-border);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.08);
+}
+
+/* --- 5. Cards --- */
+.grid-capabilities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
 .card {
   padding: 2.5rem;
   background: var(--bg-card);
@@ -127,220 +239,107 @@ body {
   position: relative;
   overflow: hidden;
 }
+
 .card:hover {
   transform: translateY(-8px);
   border-color: var(--accent-blue);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 0 20px rgba(79, 172, 254, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45), inset 0 0 20px rgba(79, 172, 254, 0.05);
 }
+
 .card-num {
-  font-size: 3.5rem; font-weight: 900; color: transparent;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-  position: absolute; top: 1rem; right: 1.5rem; line-height: 1;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  line-height: 1;
 }
-.card h4 { font-size: 1.4rem; color: var(--text-heading); margin-bottom: 1rem; font-weight: 600; }
-.card p { color: var(--text-main); font-size: 0.95rem; }
+
+.card h4 {
+  font-size: 1.4rem;
+  color: var(--text-heading);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
 
 .featured-card {
   background: linear-gradient(135deg, rgba(79, 172, 254, 0.15), rgba(0, 242, 254, 0.05));
   border-color: rgba(0, 242, 254, 0.3);
 }
 
-/* --- 6. 英雄区与双栏布局 (Hero & Split Layouts) --- */
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.hero-image img { width: 150%; border-radius: 20px; box-shadow: var(--glow-cyan); border: 1px solid var(--glass-border); opacity: 0.9; }
-.hero-image2 img { width: 100%; border-radius: 20px; box-shadow: var(--glow-cyan); border: 1px solid var(--glass-border); opacity: 0.9; }
-
-/* --- 7. "How It Works" AI 流程时间轴特效 --- */
-.process-container { position: relative; max-width: 1000px; margin: 4rem auto; padding: 0 20px; }
-/* 中间发光连接线 */
-.process-container::before {
-  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px;
-  background: linear-gradient(to bottom, transparent, var(--accent-cyan), transparent);
-  opacity: 0.3; transform: translateX(-50%);
-}
-.process-step { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6rem; gap: 4rem; position: relative; z-index: 2; }
-.process-step:nth-child(even) { flex-direction: row-reverse; }
-
-.process-content {
-  flex: 1; background: var(--bg-card); padding: 2.5rem; border-radius: 20px;
-  border: 1px solid var(--glass-border); backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: var(--transition);
-}
-.process-content:hover { border-color: var(--accent-cyan); transform: translateY(-5px); box-shadow: var(--glow-cyan); }
-.process-number { font-size: 4rem; font-weight: 900; color: transparent; -webkit-text-stroke: 1px rgba(0, 242, 254, 0.4); margin-bottom: 1rem; line-height: 1; }
-.process-content h3 { font-size: 1.75rem; margin-bottom: 1rem; color: var(--text-heading); }
-.process-content p { font-size: 1.05rem; color: var(--text-main); }
-
-/* AI 扫描仪视觉框 */
-.process-visual {
-  flex: 1; height: 250px; border-radius: 20px; display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--glass-border); background: rgba(0, 242, 254, 0.02);
-  position: relative; overflow: hidden; box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
-}
-.process-visual::after {
-  content: ''; position: absolute; width: 200%; height: 200%;
-  background: conic-gradient(from 0deg, transparent 0 340deg, rgba(0, 242, 254, 0.3) 360deg);
-  animation: radar-spin 4s linear infinite; opacity: 0.5;
-}
-@keyframes radar-spin { 100% { transform: rotate(360deg); } }
-.visual-placeholder { font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px; z-index: 1; text-shadow: 0 0 10px rgba(0,242,254,0.5); }
-
-/* --- 8. Contact 全局表单与交互样式 --- */
-input, select, textarea {
-  width: 100%; padding: 1rem; border-radius: 8px; font-family: inherit; font-size: 0.95rem;
-  background: rgba(255, 255, 255, 0.03) !important; /* 透明毛玻璃输入框 */
-  color: #fff !important;
-  border: 1px solid var(--glass-border) !important;
-  transition: var(--transition);
-  margin-top: 0.5rem;
-}
-input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.3); }
-input:focus, select:focus, textarea:focus {
-  outline: none;
-  border-color: var(--accent-cyan) !important;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-  background: rgba(0, 242, 254, 0.05) !important;
-}
-label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
-
-/* --- 9. 页脚 --- */
-.footer { background: #02040a; padding: 5rem 0 3rem; border-top: 1px solid var(--glass-border); }
-.footer-grid { display: flex; justify-content: space-between; align-items: center; }
-.footer-brand p { font-size:0.9rem; color: #64748b; margin-top: 0.8rem; }
-.footer-copyright { color: #475569; font-size: 0.85rem; }
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 14px;
-}
-
-.footer-copyright {
-  text-align: center;
-}
-
-.footer-copyright p {
-  margin: 0;
-  color: rgba(148, 163, 184, 0.78);
-  font-size: 0.95rem;
-}
-
-.footer-social-block {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.footer-social-title {
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.72);
-  letter-spacing: 0.02em;
-}
-
-.footer-social {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
-}
-
-.footer-social a:hover {
-  transform: translateY(-2px);
-  background: rgba(34, 211, 238, 0.12);
-  color: #22d3ee;
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.22);
-}
-
-.social-icon {
-  width: 24px;
-  height: 24px;
-}
-.footer-logo {
-  height: 150px;
-  width: auto;
-  opacity: 0.82;
-  filter: brightness(1.1) grayscale(0.2);
-}
-/* --- 10. 响应式适配 --- */
-@media (max-width: 968px) {
-  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
-  .nav-links { display: none; }
-  .process-container::before { left: 20px; }
-  .process-step, .process-step:nth-child(even) { flex-direction: column; text-align: left; gap: 2rem; }
-}
-/* --- Hero 区块布局优化 (解决拥挤问题) --- */
+/* --- 6. Hero & Split Layouts --- */
 .hero {
-  padding: 120px 0 80px; /* 调整上下内边距 */
+  padding: 120px 0 80px;
 }
 
-/* 将网格比例从 1:1 改为 1.2:0.8，给文字更多空间 */
 .hero-grid {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 6rem; /* 加大左右间距 */
+  gap: 6rem;
   align-items: center;
-  margin-bottom: 4rem; /* 和底部数据条拉开距离 */
 }
 
 .hero-headline {
   font-size: 4.2rem;
-  line-height: 1.15; /* 增加行高，不再紧凑 */
+  line-height: 1.15;
   margin-bottom: 2rem;
+  color: var(--text-heading);
 }
 
 .hero-subheadline {
   font-size: 1.25rem;
-  line-height: 1.8; /* 增加段落行高，阅读更舒适 */
+  line-height: 1.8;
   margin-bottom: 3rem;
   max-width: 90%;
+  color: #cbd5e1;
 }
 
 .hero-support p {
-  margin-top: 3rem; /* 将提示语往下推，留出空白呼吸感 */
+  margin-top: 3rem;
   padding-top: 1.5rem;
-  border-left: none;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* --- 图片全息融合特效 (让你的方图完美融入黑色背景) --- */
+.hero-image img {
+  width: 150%;
+  border-radius: 20px;
+  box-shadow: var(--glow-cyan);
+  border: 1px solid var(--glass-border);
+  opacity: 0.9;
+}
+
+.hero-image2 img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: var(--glow-cyan);
+  border: 1px solid var(--glass-border);
+  opacity: 0.9;
+}
+
+/* --- 7. Hologram Effect --- */
 .hologram-effect {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .hologram-effect img {
-  width: 120%; /* 稍微放大一点，因为我们要裁掉边缘 */
+  width: 120%;
   max-width: none;
   border: none;
   box-shadow: none;
   border-radius: 0;
-  /* 核心魔法：径向渐变遮罩，让图片边缘虚化融入背景，就像悬浮的投影 */
-  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
-  mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
-  animation: float 6s ease-in-out infinite; /* 增加轻微的上下浮动动画 */
+  -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 75%);
+  mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 75%);
+  animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -349,7 +348,7 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   100% { transform: translateY(0px); }
 }
 
-/* --- 底部横向数据信任条 (Trust Bar) --- */
+/* --- 8. Hero Metrics Bar --- */
 .hero-metrics-bar {
   display: flex;
   justify-content: space-between;
@@ -359,10 +358,13 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 2.5rem 4rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 }
 
-.metric-item { text-align: center; }
+.metric-item {
+  text-align: center;
+}
+
 .metric-number {
   font-size: 2.5rem;
   font-weight: 800;
@@ -370,6 +372,7 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   margin-bottom: 0.5rem;
   text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
 }
+
 .metric-text {
   font-size: 0.9rem;
   color: #94a3b8;
@@ -377,31 +380,249 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   font-weight: 700;
   letter-spacing: 1px;
 }
+
 .divider {
   width: 1px;
   height: 50px;
-  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
-/* 响应式适配 */
-@media (max-width: 968px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
-  .hologram-effect img { width: 100%; -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 85%); }
-  .hero-metrics-bar { flex-direction: column; gap: 2rem; padding: 2rem; }
-  .divider { width: 50px; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent); }
+/* --- 9. Process / How It Works --- */
+.process-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 20px;
 }
-/* =========================================
-   Leadership 页面专属样式 (高级感定制)
-   ========================================= */
 
-/* 强制 2x2 对称布局，解决孤立卡片问题 */
+.process-container::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent-cyan), transparent);
+  opacity: 0.3;
+  transform: translateX(-50%);
+}
+
+.process-step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rem;
+  gap: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.process-step:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.process-content {
+  flex: 1;
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transition: var(--transition);
+}
+
+.process-content:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-5px);
+  box-shadow: var(--glow-cyan);
+}
+
+.process-number {
+  font-size: 4rem;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 242, 254, 0.4);
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.process-content h3 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--text-heading);
+}
+
+.process-content p {
+  font-size: 1.05rem;
+  color: var(--text-main);
+}
+
+.process-visual {
+  flex: 1;
+  height: 250px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 242, 254, 0.02);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.45);
+}
+
+.process-visual::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 0 340deg, rgba(0, 242, 254, 0.3) 360deg);
+  animation: radar-spin 4s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes radar-spin {
+  100% { transform: rotate(360deg); }
+}
+
+.visual-placeholder {
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+}
+
+/* --- 10. Forms --- */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.03) !important;
+  color: #fff !important;
+  border: 1px solid var(--glass-border) !important;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--accent-cyan) !important;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  background: rgba(0, 242, 254, 0.05) !important;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.contact-form-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form-card {
+  width: 100%;
+  max-width: 760px;
+  padding: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group-last {
+  margin-bottom: 2.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.contact-submit-btn {
+  width: 100%;
+  font-size: 1.1rem;
+}
+
+/* --- 11. Footer --- */
+.footer {
+  background: #02040a;
+  padding: 24px 0;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: #22d3ee;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.footer-copyright {
+  margin-left: auto;
+}
+
+.footer-copyright p {
+  margin: 0;
+  color: rgba(148, 163, 184, 0.82);
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+/* --- 12. Leadership Page --- */
 .leadership-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 3rem;
 }
 
-/* 高管横向宽卡片 */
 .executive-card {
   display: flex;
   gap: 2rem;
@@ -416,11 +637,12 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   overflow: hidden;
 }
 
-/* 顶部增加一道极光科技线 */
 .executive-card::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
   opacity: 0;
@@ -430,7 +652,7 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
 .executive-card:hover {
   transform: translateY(-5px);
   background: rgba(15, 23, 42, 0.7);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
   border-color: rgba(0, 242, 254, 0.2);
 }
 
@@ -438,7 +660,6 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   opacity: 1;
 }
 
-/* 无照片情况下的“全息字母徽标”设计 (极度提升高级感) */
 .exec-avatar {
   width: 70px;
   height: 70px;
@@ -456,7 +677,6 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* 文字排版层级 */
 .exec-info {
   flex: 1;
 }
@@ -489,34 +709,16 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   line-height: 1.7;
 }
 
-/* 移动端适配：屏幕变小的时候，自动变成上下结构 */
-@media (max-width: 968px) {
-  .leadership-grid {
-    grid-template-columns: 1fr; /* 变成单列 */
-    gap: 2rem;
-  }
-  .executive-card {
-    flex-direction: column; /* 头像在上面，文字在下面 */
-    align-items: center;
-    text-align: center;
-    padding: 2.5rem 1.5rem;
-  }
-}
-/* =========================================
-   Model 页面专属：高级 AI 四宫格动效
-   ========================================= */
-
-/* 强制 2x2 完美对称布局 */
+/* --- 13. Model Page --- */
 .model-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
 }
 
-/* 核心方块容器 */
 .model-card {
   position: relative;
-  background: rgba(15, 23, 42, 0.5); /* 极深的蓝黑色底 */
+  background: rgba(15, 23, 42, 0.5);
   backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
@@ -527,7 +729,6 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   z-index: 1;
 }
 
-/* 默认状态的暗淡辉光 */
 .model-bg-glow {
   position: absolute;
   top: -50px;
@@ -540,19 +741,18 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   opacity: 0.5;
 }
 
-/* 炫酷的悬浮交互 */
 .model-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: rgba(0, 242, 254, 0.4);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 30px rgba(0, 242, 254, 0.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), inset 0 0 30px rgba(0, 242, 254, 0.05);
   background: rgba(15, 23, 42, 0.8);
 }
+
 .model-card:hover .model-bg-glow {
   transform: scale(1.5);
   opacity: 1;
 }
 
-/* 必杀技：扫光特效 (Light Sweep Effect) */
 .model-card::after {
   content: "";
   position: absolute;
@@ -566,11 +766,11 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   z-index: 2;
   pointer-events: none;
 }
+
 .model-card:hover::after {
-  left: 200%; /* 鼠标放上去时，一道光刷地扫过去 */
+  left: 200%;
 }
 
-/* 巨型数字水印 (增加空间纵深感) */
 .model-watermark {
   position: absolute;
   bottom: -10px;
@@ -583,12 +783,12 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   line-height: 1;
   transition: all 0.5s ease;
 }
+
 .model-card:hover .model-watermark {
   -webkit-text-stroke: 2px rgba(0, 242, 254, 0.15);
   transform: translateY(-10px);
 }
 
-/* 霓虹指示灯 (科技感点缀) */
 .neon-indicator {
   width: 8px;
   height: 8px;
@@ -616,10 +816,154 @@ label { display: block; font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
   line-height: 1.7;
 }
 
-/* 响应式：手机端变单列 */
-@media (max-width: 968px) {
+/* --- 14. Responsive --- */
+@media (max-width: 1024px) {
+  .nav-wrapper {
+    gap: 20px;
+  }
+
+  .nav-links {
+    gap: 1.3rem;
+  }
+
+  .logo-img {
+    height: 54px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+
+  .hero-subheadline {
+    max-width: 100%;
+  }
+
+  .hologram-effect img {
+    width: 100%;
+    -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 85%);
+    mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 85%);
+  }
+
+  .hero-metrics-bar {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .divider {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  }
+
+  .process-container::before {
+    left: 20px;
+  }
+
+  .process-step,
+  .process-step:nth-child(even) {
+    flex-direction: column;
+    text-align: left;
+    gap: 2rem;
+  }
+
+  .leadership-grid,
   .model-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .executive-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 72px 0;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .main-header {
+    position: static;
+  }
+
+  .nav-wrapper {
+    min-height: auto;
+    padding: 14px 0;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .logo-img {
+    height: 46px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 18px;
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+  }
+
+  .nav-links .nav-cta {
+    min-width: 108px;
+    height: 42px;
+    padding: 0 1.15rem;
+  }
+
+  .section-title {
+    font-size: 2.1rem;
+  }
+
+  .hero-headline {
+    font-size: 2.7rem;
+  }
+
+  .hero-subheadline {
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .cta-group {
+    justify-content: center;
+  }
+
+  .grid-capabilities {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-card {
+    padding: 2rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .footer-copyright {
+    margin-left: 0;
+  }
+
+  .footer-copyright p {
+    text-align: center;
   }
 }
