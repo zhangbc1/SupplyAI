@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | SUPPLYAI</title>
+  <title>Contact Us | SupplyAi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <header class="main-header">
   <div class="container nav-wrapper">
-    <div class="logo"><img src="icon.png" class="logo-img"></div>
+    <a href="index.html" class="logo" aria-label="SupplyAi Home">
+      <img src="icon.png" alt="SupplyAi Logo" class="logo-img">
+    </a>
+
     <nav>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="platform.html">Platform</a></li>
         <li><a href="how-it-works.html">How It Works</a></li>
@@ -28,115 +31,93 @@
   <div class="container text-center">
     <h2 class="section-label">Get in Touch</h2>
     <h1 class="section-title">Build the Future of Distribution</h1>
-    <p class="vision-text">We welcome conversations with operators, distributors, retail partners, and technology collaborators who share our vision.</p>
+    <p class="vision-text">
+      We welcome conversations with operators, distributors, retail partners, and technology collaborators who share our vision.
+    </p>
   </div>
 </section>
 
 <section class="section bg-light">
-  <div class="container hero-grid" style="align-items: flex-start;">
+  <div class="container">
+    <div class="contact-form-wrap">
+      <div class="card contact-form-card">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+          <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+          <input type="hidden" name="subject" value="New Lead from SupplyAi Website">
 
-    <div class="hero-content">
-      <h3 class="section-title" style="font-size: 2rem;">Partner with SUPPLYAI</h3>
-      <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #cbd5e1;">Whether you are looking to modernize your distribution workflow, explore retail partnerships, or discuss strategic collaboration, our team is ready to connect.</p>
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="Name" placeholder="Enter your name" required>
+          </div>
 
-      <div class="card" style="padding: 2rem; border-color: rgba(0,242,254,0.3);">
-        <p style="margin-bottom: 0.5rem; color: #fff;"><strong>Email:</strong> info@supplyai.com</p>
-        <p style="color: #fff;"><strong>HQ:</strong> North America Hub</p>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" name="Company" placeholder="Your company name" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="Email" placeholder="work@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Phone</label>
+              <input type="tel" name="Phone" placeholder="(888) 888-8888">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Area of Interest</label>
+            <select name="Interest">
+              <option value="Wholesale Distribution">Wholesale Distribution</option>
+              <option value="Retail Operations">Retail Operations</option>
+              <option value="Technology Collaboration">Technology Collaboration</option>
+              <option value="Strategic Stakeholder">Strategic Stakeholder</option>
+            </select>
+          </div>
+
+          <div class="form-group form-group-last">
+            <label>Message</label>
+            <textarea name="Message" rows="5" placeholder="How can we help?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary contact-submit-btn">
+            Send Secure Message
+          </button>
+        </form>
       </div>
     </div>
-
-    <!-- 全面升级为深色半透明表单卡片 -->
-    <div class="card" style="padding: 3rem;">
-      <!-- 把 action 替换为真正的接收 API -->
-      <form action="https://api.web3forms.com/submit" method="POST">
-
-        <!-- 换成邮箱收到的真实 Access Key -->
-        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
-
-        <!-- 隐藏选项：防止机器人发送垃圾邮件 (Anti-Spam) -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-        <!-- 隐藏选项：设置邮件的主题名称，让你一目了然 -->
-        <input type="hidden" name="subject" value="New Lead from SUPPLYAI Website">
-
-        <div style="margin-bottom: 1.5rem;">
-          <label>Full Name</label>
-          <input type="text" name="Name" placeholder="Enter your name" required>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label>Company</label>
-          <input type="text" name="Company" placeholder="Your company name" required>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
-          <div>
-            <label>Email</label>
-            <input type="email" name="Email" placeholder="work@email.com" required>
-          </div>
-          <div>
-            <label>Phone</label>
-            <input type="tel" name="Phone" placeholder="(888) 888-8888">
-          </div>
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-          <label>Area of Interest</label>
-          <select name="Interest" style="color: #fff; background: #0a0f1d !important;">
-            <option value="Wholesale Distribution">Wholesale Distribution</option>
-            <option value="Retail Operations">Retail Operations</option>
-            <option value="Technology Collaboration">Technology Collaboration</option>
-            <option value="Strategic Stakeholder">Strategic Stakeholder</option>
-          </select>
-        </div>
-
-        <div style="margin-bottom: 2.5rem;">
-          <label>Message</label>
-          <textarea name="Message" rows="4" placeholder="How can we help?" required></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">
-          Send Secure Message
-        </button>
-      </form>
-    </div>
-
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container footer-grid">
-    <div class="footer-social-block">
-      <div class="footer-social-title">Follow Us!</div>
+    <div class="footer-social">
+      <a href="https://www.linkedin.com/company/supplyai-solutions/?viewAsMember=true"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon" aria-hidden="true">
+          <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 10.67H5.67V18H8.34V10.67ZM7 6.42A1.58 1.58 0 1 0 7 9.58A1.58 1.58 0 1 0 7 6.42ZM18.33 13.53C18.33 11.12 16.86 10.34 15.5 10.34C14.4 10.34 13.91 10.95 13.67 11.38V10.67H11V18H13.67V14.07C13.67 13.03 13.87 12.02 15.16 12.02C16.43 12.02 16.45 13.21 16.45 14.14V18H19.12V13.53H18.33Z"/>
+        </svg>
+      </a>
 
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/company/supplyai-solutions/?viewAsMember=true"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon" aria-hidden="true">
-            <path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19ZM8.34 10.67H5.67V18H8.34V10.67ZM7 6.42A1.58 1.58 0 1 0 7 9.58A1.58 1.58 0 1 0 7 6.42ZM18.33 13.53C18.33 11.12 16.86 10.34 15.5 10.34C14.4 10.34 13.91 10.95 13.67 11.38V10.67H11V18H13.67V14.07C13.67 13.03 13.87 12.02 15.16 12.02C16.43 12.02 16.45 13.21 16.45 14.14V18H19.12V13.53H18.33Z"/>
-          </svg>
-        </a>
-        <a href="https://x.com/Supplyaiusa"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="X">
-          <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon" aria-hidden="true">
-            <path d="M18.9 2H21L14.56 9.36L22 22H16.18L11.62 15.92L6.33 22H4.22L11.11 14.08L4 2H9.97L14.09 7.56L18.9 2ZM18.16 20.73H19.33L9.34 3.2H8.08L18.16 20.73Z"/>
-          </svg>
-        </a>
-      </div>
+      <a href="https://x.com/Supplyaiusa"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="X">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon" aria-hidden="true">
+          <path d="M18.9 2H21L14.56 9.36L22 22H16.18L11.62 15.92L6.33 22H4.22L11.11 14.08L4 2H9.97L14.09 7.56L18.9 2ZM18.16 20.73H19.33L9.34 3.2H8.08L18.16 20.73Z"/>
+        </svg>
+      </a>
     </div>
-    <div class="footer-brand">
-      <img src="icon.png" alt="SUPPLYAI Logo" class="footer-logo">
-      <p>Intelligence for the Real Supply Chain</p>
-    </div>
+
     <div class="footer-copyright">
-      <p>&copy; 2026 SUPPLYAI. All Rights Reserved.</p>
+      <p>&copy; 2026 SUPPLYAI CORP. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
 </body>
 </html>
